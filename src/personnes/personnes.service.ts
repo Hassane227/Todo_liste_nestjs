@@ -54,8 +54,9 @@ export class PersonnesService {
         where:{id:id_user}
     })
 
-    if(users)
-        return this.personne_repository.update(id_user,userdto);
+    if(users){
+        await this.personne_repository.update(id_user, userdto);
+       return await this.personne_repository.findOne({ where: { id: id_user } });}
     return"cet utilisateur n'existe pas";
 
  }

@@ -52,8 +52,6 @@ async update_tache(tachedto:tacheDto,id){
         return this.tache_repository.update(id,tachedto);
     return "cette taches n'existe pour que vous puis la suipprimé"
 
-
-
 }
 
 
