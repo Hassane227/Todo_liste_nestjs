@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpException, HttpStatus, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpException, HttpStatus, Logger, Param, Post, Put } from '@nestjs/common';
 import { PersonnesService } from './personnes.service';
 import { personneDto } from 'src/dtos/personnes.dtos';
 
@@ -36,6 +36,16 @@ export class PersonnesController {
         if(users)
             return users
         throw new HttpException('la ressours n\'est pas trouver',HttpStatus.NOT_FOUND);
+    }
+    @Delete(':id_user')
+    async supprimer(@Param('id_user') id:number){
+        Logger.log('Deleted an users', 'BlogController');
+
+     const user = await this.usersService.supprimerUser(id);
+     if(user)
+        return user;
+     throw new HttpException('la ressours n\'est pas trouver',HttpStatus.NOT_FOUND);
+
     }
 
 

@@ -37,8 +37,7 @@ export class PersonnesService {
     if(users){
         return this.personne_repository.remove(users)   }
 
-    else return "cet utilisateurs n'existe pas";
-
+    else return null;
  }
 
  async creatusers(usersdto: personneDto){
