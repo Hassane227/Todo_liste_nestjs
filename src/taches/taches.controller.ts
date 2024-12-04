@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpException, HttpStatus, Param, Patch, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Patch, Post, Put } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Taches_Entity } from 'src/entities/taches.entity';
 import { TachesService } from './taches.service';
@@ -44,6 +44,17 @@ export class TachesController {
             'Cette tâche n\'existe pas',
             HttpStatus.NOT_FOUND
         );
+    }
+
+    @Delete(':id')
+    async supTache(@Param('id') id){
+        const tache = await this.tache_service.supprimer_tache(id);
+        if(tache)
+            return tache;
+        return "cette tache n'existe pas";
+    
+
+
     }
 
 
