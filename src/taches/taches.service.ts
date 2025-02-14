@@ -18,8 +18,13 @@ getAlltaches(){
     return this.tache_repository.find();
 }
 
+async getAllTachesUser(){
+        return await this.personne_repository.find({ relations: ['taches_user'] });
+     
+}
 async getOneTache(id){
-    const user = this.tache_repository.findOne({where: {id_taches:id}})
+    const user = this.tache_repository.findOne({where: {id_taches:id},
+    relations: ['taches_user']})
     if(user)
         return user
     return null;

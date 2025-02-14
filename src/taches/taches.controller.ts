@@ -10,7 +10,7 @@ export class TachesController {
 
     @Get()
     Affiche_tache(){
-        return this.tache_service.getAlltaches();
+        return this.tache_service.getAlltaches()
     }
     @Get(':id')
    async AfficherOnTache(@Param('id')id){
