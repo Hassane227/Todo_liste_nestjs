@@ -41,7 +41,7 @@ export class TachesController {
         }
     
         throw new HttpException(
-            'Cette tâche n\'existe pas',
+            'Cette tâche n\'existe pas !',
             HttpStatus.NOT_FOUND
         );
     }
