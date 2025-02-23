@@ -2,27 +2,26 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Taches_Entity } from "./taches.entity";
 
 @Entity("personne")
+export class Personne_Entity {
 
-export class Personne_Entity{
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
     nom: string;
+
     @Column()
-    prenom:string;
+    prenom: string;
+
     @Column()
     Matricule: string;
-    @Column()
-    Email: String;
-    @Column()
-    age:number;
 
-    @OneToMany(type => Taches_Entity, (tache) => tache.personne_tache)
+    @Column()
+    Email: string;
+
+    @Column()
+    age: number;
+
+    @OneToMany(() => Taches_Entity, (tache) => tache.personne_tache, { cascade: ['remove'] })
     taches_user: Taches_Entity[];
-
-
-
-
-
 }

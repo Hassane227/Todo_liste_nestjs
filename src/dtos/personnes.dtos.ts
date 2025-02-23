@@ -4,7 +4,7 @@ export class personneDto{
     nom: string;
     prenom:string;
     Matricule: string;
-    Email: String;
+    Email: string;
     age:number;
 
 }

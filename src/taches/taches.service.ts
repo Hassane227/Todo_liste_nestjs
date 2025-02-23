@@ -22,14 +22,14 @@ async getAllTachesUser(){
         return await this.personne_repository.find({ relations: ['taches_user'] });
      
 }
-async getOneTache(id){
-    const user = this.tache_repository.findOne({where: {id_taches:id},
-    relations: ['taches_user']})
-    if(user)
-        return user
-    return null;
-
+async getOneTache(id) {
+    const user = await this.tache_repository.findOne({
+        where: { id_taches: id },
+        relations: ['personne_tache'] // ✅ Utilise le bon nom de relation !
+    });
+    return user || null;
 }
+
 
 async creat_taches(tachedto: tacheDto,personne_id){
     // pour creer une tache qui a une relation avec une autre table il faut d'abord definir la relation grace a relations: ['nom de la relation']
