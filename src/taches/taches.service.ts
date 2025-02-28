@@ -69,7 +69,7 @@ const user =  await this.personne_repository.findOne({where: {id:personne_id},re
        const tch = await this.tache_repository.save(tache);
        return tch;
     }
-    return "vous ne pouvez pas creer une tache sans créer un compte";
+    return "vous ne pouvez pas creer une tache sans créer un compte dans l'application";
 
 }
 
